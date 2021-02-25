@@ -97,7 +97,7 @@ public abstract class Character {
 	 */
 	public int attack() {
 		int impacts = 0;
-		for (int x = 0; x < attack; x++)
+		for (int x = 0; x < getAttack(); x++)
 			if (Dice.roll() > 3)
 				impacts++;
 		return impacts;
