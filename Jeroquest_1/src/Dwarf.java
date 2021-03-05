@@ -1,38 +1,23 @@
-/**
- * Programming Methodology Practice.
- * Jeroquest - An example of Object Oriented Programming.
- * Class Barbarian
- * @author Jorge Puente Peinador y Ramiro Varela Arias
- * @author Juan Luis Mateo Cerdán
- * @version 1
- * 
- */
 
-public class Barbarian extends Hero {
-	// initial value for the attributes
-	protected static final int MOVEMENT = 7;
+public class Dwarf extends Hero {
+
+	protected static final int MOVEMENT = 6;
 	protected static final int ATTACK = 1;
 	protected static final int DEFENCE = 2;
-	protected static final int BODY = 8;
+	protected static final int BODY = 7;
 	protected Weapon weapon;
-
-	/**
-	 * Create a barbarian with its name
-	 * @param itsName Barbarian's name
-	 */
-	public Barbarian(String itsName)
-	{
-		// setting the attributes with the initial values
+	
+	public Dwarf (String itsName) {
 		super(itsName, MOVEMENT, ATTACK, DEFENCE, BODY);
-		setWeapon(new Weapon ("Broadsword",3));
-	}
-
-	public Weapon getWeapon() {
-		return this.weapon;
+		setWeapon(new Weapon("Hand axe", 2));
 	}
 	
-	public void setWeapon(Weapon weapon) {
+	public void setWeapon (Weapon weapon) {
 		this.weapon=weapon;
+	}
+	
+	public Weapon getWeapon() {
+		return this.weapon;
 	}
 	
 	@Override
@@ -45,7 +30,7 @@ public class Barbarian extends Hero {
 	}
 	
 	/** 
-	 * The barbarian defends itself from an attack
+	 * The dwarf defends itself from an attack
 	 * (Implementing an inherited abstract method)
 	 * @param impacts the total number of impacts to try to block or receive
 	 * @return the number of wounds suffered
@@ -63,12 +48,12 @@ public class Barbarian extends Hero {
 		{
 			// a character life cannot be lower than zero
 			setBody(Math.max(0, getBody() - impacts));
-			System.out.printf("The barbarian " + this.getName() + " cannot block %d impacts%s", impacts,
+			System.out.printf("The dwarf " + this.getName() + " cannot block %d impacts%s", impacts,
 					(isAlive() ? "\n" : " and dies\n"));
 		}
 		else
 		{
-			System.out.printf("The barbarian blocks completely the attack\n");
+			System.out.printf("The dwarf blocks completely the attack\n");
 		}
 		
 		return impacts;
@@ -77,16 +62,15 @@ public class Barbarian extends Hero {
 	/** 
 	 * Generate a printable String version of the object
 	 *  (overriden method)
-	 * @return the barbarian's printable info as a String 
+	 * @return the dwarf's printable info as a String 
 	 */
 	public String toString()
 	{
 		if (getWeapon()!=null) {
-		return String.format("The barbarian: %s \n\t%s.", super.toString(),getWeapon().toString());
+		return String.format("The dwarf: %s \n\t%s.", super.toString(),getWeapon().toString());
 		} else {
-			return String.format("The barbarian: %s \n\tWeapon: %s.", super.toString(),"None");
+			return String.format("The dwarf: %s \n\tWeapon: %s.", super.toString(),"None");
 		}
 		
 	}
-
 }
